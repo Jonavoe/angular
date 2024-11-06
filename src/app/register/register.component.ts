@@ -33,7 +33,7 @@ export class RegisterComponent {
 
     this.registerService.register(credentials).subscribe({
       next: response => {
-        this.navigateTo('/');
+        this.navigateTo('/login');
         console.log('Register exitoso:', response);
       },
       error: err => {
