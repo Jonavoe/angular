@@ -1,0 +1,29 @@
+<div class="w-[100%] borderTwitterBottom">
+  <div class="flex justify-center gap-2 p-2">
+    <div>
+      <div class="rounded-full bg-white w-10 h-10 my-2"></div>
+    </div>
+    <textarea
+      class="my-2 bg-transparent border-none resize-none w-full"
+      placeholder="Escribe aquí..."
+      [(ngModel)]="tweetContent"
+      (input)="adjustHeight($event)"
+      [ngClass]="{
+        'text-[#ff0000]': !isTextTooLong(),
+        'text-white': isTextTooLong()
+      }"
+      [ngStyle]="{ height: height }">
+    </textarea>
+  </div>
+  <div class="flex justify-end items-center m-2">
+    <button
+      (click)="publishTweet()"
+      class="py-1 px-2 rounded-full text-white text-sm"
+      [ngClass]="{
+        'bg-blue-500': isTextTooLong(),
+        'bg-blue-950': !isTextTooLong()
+      }">
+      Publicar
+    </button>
+  </div>
+</div>
